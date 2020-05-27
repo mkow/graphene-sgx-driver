@@ -83,6 +83,11 @@ static int __init gsgx_init(void) {
     int ret;
 
     pr_info(DRV_DESCRIPTION " v" DRV_VERSION "\n");
+    pr_crit("*************************************************************");
+    pr_crit("*** WARNING: This module should not be used in production ***");
+    pr_crit("*** as it allows local privilege escalation. For more     ***");
+    pr_crit("*** information see the included README.rst.              ***");
+    pr_crit("*************************************************************");
 
     if (!boot_cpu_has(X86_FEATURE_FSGSBASE)) {
         pr_err("FSGSBASE feature required by Graphene is not supported by this CPU!\n");
